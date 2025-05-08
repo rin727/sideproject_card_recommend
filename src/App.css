@@ -1,0 +1,17 @@
+#root {
+  display: flex;
+  width: 390px;
+  height: 844px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  background-color: bisque;
+}
+*{
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
