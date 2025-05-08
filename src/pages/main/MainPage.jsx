@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import TopIndicator from '../../components/Home/TopIndicator';
-import TopNavigationBar from '../../components/TopNavigationBar';
-import Indicator from '../../components/Home/Indicator';
+import TopNavigationBar from '../../components/navigation/TopNavigationBar';
 
 const Container = styled.div`
     justify-content: baseline;

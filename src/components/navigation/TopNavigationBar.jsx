@@ -1,15 +1,8 @@
 import React from 'react';
-import { Tabs, Tab, Box, Typography } from '@mui/material';
+import { Tabs, Tab, Box } from '@mui/material';
 import styled from 'styled-components';
-import HomeDetail from '../pages/main/HomeDetail';
-
-function TabPanel({ children, value, index }) {
-  return value === index && (
-    <Box p={3}>
-      <Typography>{children}</Typography>
-    </Box>
-  );
-}
+import HomeDetail from '../../pages/main/HomeDetail';
+import { CardList } from '../../lists/card/CardList';
 
 const TabBox = styled.div`
     width: 390px;
@@ -23,7 +16,26 @@ const TabButtons = styled.div`
     justify-content: space-between;
     
 `
-export default function TabComponent() {
+const MyPage = styled.div`
+  width: 48px;
+  height: 48px;
+`
+const TabPanelContents = styled.div`
+  height: 100%;
+  width: 100%;
+  background-color: #f9f9f9;
+  margin: 32px 0 28px 0;
+`
+
+function TabPanel({ children, value, index }) {
+  return value === index && (
+    <TabPanelContents>
+      {children}
+    </TabPanelContents>
+  );
+}
+
+export default function TopNavigationBar() {
   const [value, setValue] = React.useState(0);
   const handleChange = (_, newValue) => setValue(newValue);
 
@@ -72,9 +84,10 @@ export default function TabComponent() {
                     },
                 }}/>
             </Tabs>
+            
         </TabButtons>
       <TabPanel value={value} index={0}><HomeDetail/></TabPanel>
-      <TabPanel value={value} index={1}>This is Screen B</TabPanel>
+      <TabPanel value={value} index={1}><CardList/></TabPanel>
     </TabBox>
   );
 }
