@@ -17,6 +17,7 @@ const Benefit = styled.p`
     /* Label/02_Medium */
     font-size: 10px;
     font-weight: 500;
+    padding: 1px 0 0 0;
 `
 
 export const CardBenefitChip =(props)=> {

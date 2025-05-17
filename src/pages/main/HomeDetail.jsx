@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BigButton } from '../../components/button/BigButton';
+import { useNavigate } from 'react-router-dom';
+import { MainButton } from '../../components/button/MainButton';
 import { MyConsume } from '../../lists/main/MyConsume';
 import SmallNavigationBar from '../../components/navigation/SmallNavigationBar';
 
@@ -36,27 +37,32 @@ const GridsTitle = styled.p`
 // `
 
 const HomeDetail = () => {
+    const navigate = useNavigate();
+
     return(
         <Container>
             <MainButtons>
-                <BigButton
+                <MainButton
                 firsttext='소비패턴에'
                 secondtext='맞는 카드 찾기'
+                icon = '/cardrecommendByconsume.gif'
+                onClick={() => navigate('/choose-consume')}
                 />
-                <BigButton
+                <MainButton
                 firsttext='원하는 카드 찾기'
                 secondtext=''
+                icon = '/cardrecommend.gif'
                 />
             </MainButtons>
             <Grids>
                 <GridsTitle>나의 소비 내역</GridsTitle>
-                <MyConsume/>
+                <MyConsume
+                    CardImg = '/consume1.png'
+                />
             </Grids>
             <Grids>
                 <GridsTitle>인기 카드 10순위</GridsTitle>
                 <SmallNavigationBar
-                    creditCardComponent={<p>asdf</p>}
-                    checkCardComponent={<p>qwer</p>}
                 />
             </Grids>
         </Container>

@@ -3,6 +3,7 @@ import { Tabs, Tab, Box } from '@mui/material';
 import styled from 'styled-components';
 import HomeDetail from '../../pages/main/HomeDetail';
 import { CardList } from '../../lists/card/CardList';
+import SmallNavigationBar from './SmallNavigationBar';
 
 const TabBox = styled.div`
     width: 390px;
@@ -87,7 +88,7 @@ export default function TopNavigationBar() {
             
         </TabButtons>
       <TabPanel value={value} index={0}><HomeDetail/></TabPanel>
-      <TabPanel value={value} index={1}><CardList/></TabPanel>
+      <TabPanel value={value} index={1}><SmallNavigationBar/></TabPanel>
     </TabBox>
   );
 }

@@ -41,9 +41,9 @@ const BigButtonIcon = styled.img`
 `
 
 export const MainButton = (props) => {
-    const {firsttext, secondtext, icon} = props;
+    const {firsttext, secondtext, icon, onClick} = props;
   return (
-    <Container>
+    <Container onClick={onClick}>
             <BigButtonTitle>
                 {firsttext||null}<br/>
                 {secondtext||null}

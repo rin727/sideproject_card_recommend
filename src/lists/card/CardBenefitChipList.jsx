@@ -7,12 +7,12 @@ const Container = styled.div`
     gap: 4px;
 `
 
-export const CardBenefitChipList = () => {
-    return(
+export const CardBenefitChipList = ({ benefits = [] }) => {
+    return (
         <Container>
-            <CardBenefitChip/>
-            <CardBenefitChip/>
-            <CardBenefitChip/>
+            {benefits.map((benefit, index) => (
+                <CardBenefitChip key={index} benefit={benefit} />
+            ))}
         </Container>
-    )
-}
+    );
+};

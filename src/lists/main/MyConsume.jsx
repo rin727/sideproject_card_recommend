@@ -19,7 +19,7 @@ const Container = styled.div`
   user-select: none;
   width: 374px;
   height: 80px;
-  background-color: yellow;
+  /* background-color: yellow; */
   gap: 16px;
   padding-right: 16px;
 `;
@@ -30,9 +30,12 @@ const MyConsumeCard = styled.button`
   aspect-ratio: 126.67 / 80.0;
   border-radius: 6px;
   padding: 0;
+  background-image: ${props=>`url(${props.CardImg || "/default-image.png"})`};
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column-reverse;
-  background: ${props => props.CardImg || "#ccc"};
   border: none;
   &:focus {
     outline: none;
@@ -64,6 +67,7 @@ const MyConsumeCardInformation = styled.div`
     background: rgba(255, 255, 255, 0.50);
     box-shadow: 0px -2px 4px 0px rgba(136, 136, 136, 0.10);
     backdrop-filter: blur(4px);
+    border-radius: 0px 0px 6px 6px;
 `
 const InformationCardCompany = styled.p`
     width: 100%;
@@ -86,7 +90,8 @@ const InformationCardName = styled.p`
     font-weight: 600;
 `
 
-export const MyConsume = () => {
+export const MyConsume = (props) => {
+  const {CardImg} = props;
   const scrollRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -122,16 +127,16 @@ export const MyConsume = () => {
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
     >
-      <MyConsumeCard>
+      <MyConsumeCard CardImg={CardImg}>
         <MyConsumeCardInformation>
-            <InformationCardCompany>asdfasd</InformationCardCompany>
-            <InformationCardName>dsfasdfasdfdsfasdfasdf</InformationCardName>
+            <InformationCardCompany>현대카드</InformationCardCompany>
+            <InformationCardName>현대카드 M</InformationCardName>
         </MyConsumeCardInformation>
       </MyConsumeCard>
-      <MyConsumeCard>
+      <MyConsumeCard CardImg={CardImg}>
         <MyConsumeCardInformation>
-            <InformationCardCompany>sdsddddd</InformationCardCompany>
-            <InformationCardName>sdfa</InformationCardName>
+            <InformationCardCompany>현대카드</InformationCardCompany>
+            <InformationCardName>현대카드 M</InformationCardName>
         </MyConsumeCardInformation>
       </MyConsumeCard>
       <MyConsumeCardPlus>plusicon</MyConsumeCardPlus>

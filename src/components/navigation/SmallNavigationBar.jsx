@@ -1,11 +1,13 @@
 import React from 'react';
 import { Tabs, Tab, Box } from '@mui/material';
 import styled from 'styled-components';
+import { CardList } from '../../lists/card/CardList';
 // import HomeDetail from '../pages/main/HomeDetail';
 
 const TabBox = styled.div`
     width: 100%;
     box-sizing: border-box;
+    background-color: #fff;
 `
 const TabButtons = styled.div`
     height: 44px;
@@ -92,8 +94,34 @@ export default function SmallNavigationBar({ creditCardComponent, checkCardCompo
       </Tabs>
     </TabButtons>
 
-      <TabPanel value={value} index={0}>{creditCardComponent}</TabPanel>
-      <TabPanel value={value} index={1}>{checkCardComponent}</TabPanel>
+      <TabPanel value={value} index={0}>
+        <CardList
+          cards={[
+            {
+              id: "card1",
+              cardImg: "https://via.placeholder.com/40x64", // 테스트용 이미지
+              cardCompany: "신한한카드",
+              cardName: "신한카드 처음",
+              benefits:["푸드", "쇼핑", "교통"]
+            },
+          ]}
+          onClickItem={(card) => console.log("클릭됨", card)}
+        />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <CardList
+          cards={[
+            {
+              id: "card1",
+              cardImg: "https://via.placeholder.com/40x64", // 테스트용 이미지
+              cardCompany: "KB 국민은행",
+              cardName: "국민 노리카드2",
+              benefits:["카페", "쇼핑", "문화"]
+            },
+          ]}
+          onClickItem={(card) => console.log("클릭됨", card)}
+        />
+      </TabPanel>
     </TabBox>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { CardButton } from "../../components/button/CardButton";
+import { CardRankingButton } from "../../components/button/CardRankingButton";
 
 const Container = styled.div`
     display: flex;
@@ -15,7 +15,7 @@ export const CardList = (props) => {
     return (
       <Container>
         {cards.map((cardItem) => (
-          <CardButton
+          <CardRankingButton
             key={cardItem.id}
             {...cardItem}
             onClick={() => onClickItem(cardItem)}
